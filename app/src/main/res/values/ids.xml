@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--commons-->
+  <item name="root_container" type="id"/>
+  <item name="fragment_container" type="id"/>
+  <item name="toolbar" type="id"/>
+
+  <!--button behaviors-->
+  <item name="btn_ok" type="id"/>
+  <item name="btn_estimate" type="id"/>
+  <item name="btn_check_comment" type="id"/>
+
+  <!--navigator-->
+  <item name="nav_scan" type="id"/>
+  <item name="nav_receipt" type="id"/>
+  <item name="nav_personal" type="id"/>
+
+  <!--receipt-->
+  <item name="receipt_tab_estimate" type="id"/>
+  <item name="receipt_tab_un_estimated" type="id"/>
+  <item name="receipt_refresh_switch" type="id"/>
+  <item name="receipt_rv_receipt_list" type="id"/>
+  <item name="receipt_list_tv_item_model" type="id"/>
+  <item name="receipt_list_tv_item_name" type="id"/>
+  <item name="receipt_list_tv_item_category" type="id"/>
+  <item name="receipt_list_tv_item_standard" type="id"/>
+
+  <!--scanner page-->
+  <item name="scanner_et_barcode_input" type="id"/>
+  <item name="scanner_iv_scan_entry" type="id"/>
+  <item name="barcode_scanner_view" type="id"/>
+  <item name="personal_iv_settings" type="id"/>
+  <item name="personal_sdv_avatar" type="id"/>
+  <item name="root_layout" type="id"/>
+  <item name="login_til_username" type="id"/>
+  <item name="login_et_username" type="id"/>
+  <item name="login_til_passwd" type="id"/>
+  <item name="login_et_passwd" type="id"/>
+  <item name="btn_login" type="id"/>
+  <item name="progress_bar" type="id"/>
+  <item name="login_tv_forget_passwd" type="id"/>
+
+</resources>

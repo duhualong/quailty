@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    >
+
+  <TextView
+      android:id="@id/nav_scan"
+      android:layout_width="@dimen/img_nor"
+      android:layout_height="@dimen/img_nor"
+      android:layout_gravity="center_horizontal"
+      android:drawableTop="@drawable/ic_nav_scan_nor"
+      />
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="?android:attr/actionBarSize"
+      android:layout_marginTop="@dimen/space.small"
+      android:orientation="horizontal"
+      >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+
+      <TextView
+          android:id="@id/nav_receipt"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawableTop="@drawable/ic_nav_receipt_nor"
+          android:paddingLeft="@dimen/space.medium"
+          android:paddingRight="@dimen/space.medium"
+          android:text="@string/nav_receipt"
+          android:textColor="@color/gray"
+          />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+      <TextView
+          android:id="@id/nav_personal"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawableTop="@drawable/ic_nav_personal_nor"
+          android:paddingLeft="@dimen/space.medium"
+          android:paddingRight="@dimen/space.medium"
+          android:text="@string/nav_personal"
+          android:textColor="@color/gray"
+          />
+    </LinearLayout>
+
+  </LinearLayout>
+
+</FrameLayout>

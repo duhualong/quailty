@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.small"
+      android:orientation="horizontal"
+      android:padding="@dimen/space.small"
+      >
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space.small"
+        android:layout_toLeftOf="@id/btn_ok"
+        android:layout_toStartOf="@id/btn_ok"
+        >
+      <EditText
+          android:id="@id/scanner_et_barcode_input"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/input_barcode_hint"
+          android:inputType="number"
+          android:lines="1"
+          android:maxLength="30"
+          android:paddingLeft="@dimen/space.small"
+          android:paddingRight="@dimen/space.small"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          android:textColor="@color/black"
+          />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@id/btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/confirm"
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
+
+  </RelativeLayout>
+
+  <ImageView
+      android:id="@id/scanner_iv_scan_entry"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scaleType="centerInside"
+      android:src="@drawable/ic_scan"
+      />
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<resources>
+  <string name="app_name">QualityTest</string>
+  <string name="nav_receipt">Receipt</string>
+  <string name="nav_personal">Personal</string>
+  <string name="input_barcode_hint">输入序列号</string>
+  <string name="confirm">确认</string>
+  <string name="scan_hint">点击扫码</string>
+  <string name="estimated">已评价</string>
+  <string name="un_estimated">未评价</string>
+
+  <string name="receipt_check_comments">查看质检结果</string>
+  <string name="receipt_evaluate">去评价</string>
+  <string name="personal_company_label">Company</string>
+  <string name="personal_name_label">Name</string>
+  <string name="personal_worker_number_label">Worker Number</string>
+  <string name="login_input_account_hint">请输入密码</string>
+  <string name="login_input_passwd_hint">请输入密码</string>
+  <string name="login">登录</string>
+  <string name="login_forget_passwd">忘记密码</string>
+  <string name="login_sign_up">新用户</string>
+</resources>

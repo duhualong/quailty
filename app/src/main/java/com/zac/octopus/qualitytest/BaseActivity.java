@@ -1,19 +1,20 @@
 package com.zac.octopus.qualitytest;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.zac.octopus.qualitytest.data.local.PreferencesHelper;
+import com.zac.octopus.qualitytest.data.remote.WebService;
 import com.zac.octopus.qualitytest.di.component.ActivityComponent;
 import com.zac.octopus.qualitytest.di.component.DaggerActivityComponent;
 import com.zac.octopus.qualitytest.di.module.ActivityModule;
+import javax.inject.Inject;
+import rx.Subscription;
 
 /**
  * Base Activity
@@ -24,15 +25,20 @@ public abstract class BaseActivity extends AppCompatActivity {
   protected abstract int getContentView();
   protected abstract void updateUI();
 
-  @BindView(R.id.root_layout) View mRootLayout;
+  @Inject PreferencesHelper mPrefsHelper;
+  @Inject WebService mWebService;
 
   private ActivityComponent mActivityComponent;
+  private Subscription mSubscription;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     if (getContentView() != 0) {
       setContentView(getContentView());
     }
+
+    getActivityComponent().inject(this);
+
     ButterKnife.bind(this);
     updateUI();
   }
@@ -49,6 +55,20 @@ public abstract class BaseActivity extends AppCompatActivity {
       }
     }
     return super.onTouchEvent(event);
+  }
+
+  @Override protected void onStop() {
+    super.onStop();
+    if (mSubscription != null && !mSubscription.isUnsubscribed()) {
+      mSubscription.unsubscribe();
+    }
+  }
+
+  @Override protected void onDestroy() {
+    super.onDestroy();
+    if (mSubscription != null) {
+      mSubscription = null;
+    }
   }
 
   /**
@@ -80,19 +100,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
   }
 
-  /**
-   * Show SnackBar Message
-   * @param msg message to show on the SnackBar
-   */
-  protected void showSnackBar(String msg) {
-    Snackbar.make(mRootLayout, msg, Snackbar.LENGTH_LONG).show();
+  public ActivityComponent getActivityComponent() {
+    if (mActivityComponent == null) {
+      mActivityComponent = DaggerActivityComponent.builder()
+          .activityModule(new ActivityModule(this))
+          .applicationComponent(App.get(this).getComponent())
+          .build();
+    }
+    return mActivityComponent;
   }
-
-  //public ActivityComponent getActivityComponent() {
-  //  if (mActivityComponent == null) {
-  //    mActivityComponent = DaggerActivityComponent.builder()
-  //        .activityModule(new ActivityModule(this))
-  //  }
-  //}
 
 }

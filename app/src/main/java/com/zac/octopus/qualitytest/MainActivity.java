@@ -2,6 +2,7 @@ package com.zac.octopus.qualitytest;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,7 +16,8 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
-  public static final int NAVIGATOR_COUNT = 3;
+  private static final int NAVIGATOR_COUNT = 3;
+  private static final String[] titles = {"质检评价","质检","个人中心"};
 
   int[] navigatorDrawablesNormal = {
       R.drawable.ic_nav_receipt_nor, R.drawable.ic_nav_scan_nor, R.drawable.ic_nav_personal_nor
@@ -26,7 +28,8 @@ public class MainActivity extends BaseActivity {
   };
 
   @BindViews({ R.id.nav_receipt, R.id.nav_scan, R.id.nav_personal }) List<TextView> navigators;
-
+  @BindView(R.id.toolbar) Toolbar mToolbar;
+  @BindView(R.id.page_title) TextView mPageTitleView;
   @BindView(R.id.root_container) RelativeLayout rootView;
 
   @Override protected int getContentView() {
@@ -34,7 +37,8 @@ public class MainActivity extends BaseActivity {
   }
 
   @Override protected void updateUI() {
-    supportFragmentMgr.beginTransaction()
+    setSupportActionBar(mToolbar);
+    getSupportFragmentManager().beginTransaction()
         .add(R.id.fragment_container, new ScannerFragment())
         .commit();
   }
@@ -70,14 +74,16 @@ public class MainActivity extends BaseActivity {
         fragment = new PersonalFragment();
         break;
     }
-    supportFragmentMgr.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.fragment_container, fragment)
+        .commit();
   }
 
   private void refreshNavigator() {
     for (int i = 0; i < NAVIGATOR_COUNT; i++) {
       navigators.get(i)
           .setCompoundDrawablesWithIntrinsicBounds(0, navigatorDrawablesNormal[i], 0, 0);
-      navigators.get(i).setTextColor(ContextCompat.getColor(context, R.color.gray));
+      navigators.get(i).setTextColor(ContextCompat.getColor(MainActivity.this, R.color.gray));
     }
   }
 
@@ -86,8 +92,9 @@ public class MainActivity extends BaseActivity {
     navigators.get(index)
         .setCompoundDrawablesWithIntrinsicBounds(0, navigatorDrawablesSelect[index], 0, 0);
     if (index != 1) {
-      navigators.get(index).setTextColor(ContextCompat.getColor(context, R.color.blue));
+      navigators.get(index).setTextColor(ContextCompat.getColor(MainActivity.this, R.color.blue));
     }
+    mPageTitleView.setText(titles[index]);
   }
 
   public View getRootView() {

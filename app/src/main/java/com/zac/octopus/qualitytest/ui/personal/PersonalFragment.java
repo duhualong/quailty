@@ -17,7 +17,7 @@ import com.zac.octopus.qualitytest.BaseFragment;
 import com.zac.octopus.qualitytest.MainActivity;
 import com.zac.octopus.qualitytest.R;
 import com.zac.octopus.qualitytest.ui.dialog.ImageSelectDialogFragment;
-import com.zac.octopus.qualitytest.util.PermissionUtils;
+import com.zac.octopus.qualitytest.util.PermissionManager;
 import com.zac.octopus.qualitytest.util.PhotoUtils;
 import java.io.File;
 
@@ -51,8 +51,8 @@ public class PersonalFragment extends BaseFragment {
         break;
       case R.id.personal_sdv_avatar:
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-          boolean hasPermission = PermissionUtils.checkCamera(getContext())
-              || PermissionUtils.checkWriteExternalStorage(getContext());
+          boolean hasPermission = PermissionManager.checkCamera(getContext())
+              || PermissionManager.checkWriteExternalStorage(getContext());
           if (hasPermission) {
             showPhotoHeadFindDialog();
           } else {
@@ -71,7 +71,7 @@ public class PersonalFragment extends BaseFragment {
 
     imageSelectDialog = ImageSelectDialogFragment.newInstance(photoUri);
     imageSelectDialog.setTargetFragment(PersonalFragment.this, 0);
-    imageSelectDialog.show(fragmentMgr);
+    imageSelectDialog.show(getFragmentManager());
   }
 
   @Override public void onAttach(Context context) {
@@ -86,12 +86,14 @@ public class PersonalFragment extends BaseFragment {
     if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
         Manifest.permission.CAMERA)) {
       Snackbar.make(containerRootView, "请提供摄像头的权限，以预览相机图片", Snackbar.LENGTH_INDEFINITE)
-          .setAction("OK", v -> {
-            PermissionUtils.requestCamera(PersonalFragment.this, REQUEST_CAMERA_PERMISSION);
+          .setAction("OK", new View.OnClickListener() {
+            @Override public void onClick(View view) {
+              PermissionManager.requestCamera(PersonalFragment.this, REQUEST_CAMERA_PERMISSION);
+            }
           })
           .show();
     } else {
-      PermissionUtils.requestCamera(PersonalFragment.this, REQUEST_CAMERA_PERMISSION);
+      PermissionManager.requestCamera(PersonalFragment.this, REQUEST_CAMERA_PERMISSION);
     }
   }
 

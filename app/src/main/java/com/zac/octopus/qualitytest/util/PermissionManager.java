@@ -13,7 +13,7 @@ import android.support.v4.app.Fragment;
  * Android Runtime Permission Help Utilities
  * Created by zac on 4/28/16.
  */
-public class PermissionUtils {
+public class PermissionManager {
 
   public static boolean checkCamera(Context context) {
     return ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA)

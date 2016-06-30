@@ -40,5 +40,6 @@
   <item name="btn_login" type="id"/>
   <item name="progress_bar" type="id"/>
   <item name="login_tv_forget_passwd" type="id"/>
+  <item name="page_title" type="id"/>
 
 </resources>

@@ -3,6 +3,7 @@ package com.zac.octopus.qualitytest.di.module;
 import android.app.Application;
 import android.content.Context;
 import com.zac.octopus.qualitytest.data.local.PreferencesHelper;
+import com.zac.octopus.qualitytest.data.local.dao.UserDao;
 import com.zac.octopus.qualitytest.data.remote.WebService;
 import com.zac.octopus.qualitytest.di.ApplicationContext;
 import dagger.Module;
@@ -34,5 +35,9 @@ import javax.inject.Singleton;
 
   @Provides @Singleton PreferencesHelper providePrefsHelper() {
     return new PreferencesHelper(mApplication);
+  }
+
+  @Provides @Singleton UserDao provideUserDao() {
+    return new UserDao(mApplication);
   }
 }

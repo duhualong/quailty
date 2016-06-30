@@ -2,6 +2,7 @@ package com.zac.octopus.qualitytest.ui.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -53,13 +54,16 @@ public class ImageSelectDialogFragment extends DialogFragment {
   @Override public Dialog onCreateDialog(Bundle savedInstanceState) {
 
     context = getActivity();
-
-    AlertDialog.Builder builder =
-        new AlertDialog.Builder(context).setPositiveButton("Gallery", (dialog, which) -> {
-          selectPhoto(SELECT_PHOTO_CODE);
-        }).setNegativeButton("Camera", (dialog, which) -> {
-          captureImage(CAPTURE_IMAGE_CODE);
-        });
+    AlertDialog.Builder builder = new AlertDialog.Builder(context).setPositiveButton("Gallery",
+        new DialogInterface.OnClickListener() {
+          @Override public void onClick(DialogInterface dialogInterface, int i) {
+            selectPhoto(SELECT_PHOTO_CODE);
+          }
+        }).setNegativeButton("Camera", new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialogInterface, int i) {
+        captureImage(CAPTURE_IMAGE_CODE);
+      }
+    });
     return builder.create();
   }
 

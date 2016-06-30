@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
@@ -24,10 +23,6 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
 }
 
 
@@ -50,7 +45,8 @@ dependencies {
   compile "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
   compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
 
-  // Google
+  // Rx
+  compile "io.reactivex:rxandroid:${rxandroidVersion}"
 
   // Dagger2
   compile "com.google.dagger:dagger:${daggerVersion}"

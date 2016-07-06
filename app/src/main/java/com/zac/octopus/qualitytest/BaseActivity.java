@@ -1,5 +1,6 @@
 package com.zac.octopus.qualitytest;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +10,9 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import com.zac.octopus.qualitytest.data.local.PreferencesHelper;
+import com.zac.octopus.qualitytest.data.local.dao.UserDao;
 import com.zac.octopus.qualitytest.data.remote.WebService;
+import com.zac.octopus.qualitytest.di.ActivityContext;
 import com.zac.octopus.qualitytest.di.component.ActivityComponent;
 import com.zac.octopus.qualitytest.di.component.DaggerActivityComponent;
 import com.zac.octopus.qualitytest.di.module.ActivityModule;
@@ -25,11 +28,13 @@ public abstract class BaseActivity extends AppCompatActivity {
   protected abstract int getContentView();
   protected abstract void updateUI();
 
-  @Inject PreferencesHelper mPrefsHelper;
-  @Inject WebService mWebService;
+  @Inject protected PreferencesHelper mPrefsHelper;
+  @Inject protected WebService mWebService;
+  @Inject protected UserDao mUserDao;
+  @Inject @ActivityContext protected Context mContext;
 
   private ActivityComponent mActivityComponent;
-  private Subscription mSubscription;
+  protected Subscription mSubscription;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:divider="@drawable/divider_horizontal"
     android:orientation="vertical"
     android:showDividers="middle"
@@ -49,11 +50,12 @@
         />
 
     <TextView
+        android:id="@id/personal_tv_company_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="company"
+        tools:text="company"
         />
 
   </RelativeLayout>
@@ -72,11 +74,12 @@
         />
 
     <TextView
+        android:id="@id/personal_tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="Name"
+        tools:text="Name"
         />
 
   </RelativeLayout>
@@ -95,11 +98,12 @@
         />
 
     <TextView
+        android:id="@id/personal_tv_class_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="Work Number"
+        tools:text="88"
         />
 
   </RelativeLayout>

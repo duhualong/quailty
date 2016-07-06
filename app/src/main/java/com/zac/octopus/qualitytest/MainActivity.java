@@ -38,6 +38,9 @@ public class MainActivity extends BaseActivity {
 
   @Override protected void updateUI() {
     setSupportActionBar(mToolbar);
+    if (getSupportActionBar() != null) {
+      getSupportActionBar().setTitle("");
+    }
     getSupportFragmentManager().beginTransaction()
         .add(R.id.fragment_container, new ScannerFragment())
         .commit();

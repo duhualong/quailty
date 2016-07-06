@@ -5,11 +5,13 @@
   <item name="root_container" type="id"/>
   <item name="fragment_container" type="id"/>
   <item name="toolbar" type="id"/>
+  <item name="progress_bar" type="id"/>
 
   <!--button behaviors-->
   <item name="btn_ok" type="id"/>
   <item name="btn_estimate" type="id"/>
   <item name="btn_check_comment" type="id"/>
+  <item name="btn_login" type="id"/>
 
   <!--navigator-->
   <item name="nav_scan" type="id"/>
@@ -26,20 +28,51 @@
   <item name="receipt_list_tv_item_category" type="id"/>
   <item name="receipt_list_tv_item_standard" type="id"/>
 
+  <!--evaluates-->
+  <item name="evaluate_list_item_tv_date" type="id"/>
+  <item name="evaluate_list_item_tv_content" type="id"/>
+  <item name="evaluate_list_item_tv_specific" type="id"/>
+  <item name="evaluate_list_item_tv_qualified_rate" type="id"/>
+  <item name="evaluate_list_item_btn_check_result" type="id"/>
+  <item name="evaluate_list_item_btn_evaluate" type="id"/>
+
   <!--scanner page-->
   <item name="scanner_et_barcode_input" type="id"/>
   <item name="scanner_iv_scan_entry" type="id"/>
   <item name="barcode_scanner_view" type="id"/>
   <item name="personal_iv_settings" type="id"/>
   <item name="personal_sdv_avatar" type="id"/>
-  <item name="root_layout" type="id"/>
+
+  <!--login-->
   <item name="login_til_username" type="id"/>
   <item name="login_et_username" type="id"/>
   <item name="login_til_passwd" type="id"/>
   <item name="login_et_passwd" type="id"/>
-  <item name="btn_login" type="id"/>
-  <item name="progress_bar" type="id"/>
   <item name="login_tv_forget_passwd" type="id"/>
+  <item name="root_layout" type="id"/>
   <item name="page_title" type="id"/>
+
+  <!--personal-->
+  <item name="personal_tv_company_name" type="id"/>
+  <item name="personal_tv_username" type="id"/>
+  <item name="personal_tv_class_num" type="id"/>
+
+  <!--receipt result-->
+  <item name="receipt_result_tv_date" type="id"/>
+  <item name="receipt_result_tv_classify" type="id"/>
+  <item name="receipt_result_tv_company_name" type="id"/>
+  <!--receipt evaluate -->
+  <item name="receipt_evaluate_et_evaluate" type="id"/>
+  <item name="receipt_evaluate_rb_quality" type="id"/>
+  <item name="receipt_evaluate_rb_service" type="id"/>
+  <item name="receipt_evaluate_rb_logistics" type="id"/>
+  <item name="receipt_evaluate_tv_post" type="id"/>
+  <item name="receipt_result_tv_carrying_capacity" type="id"/>
+  <item name="receipt_result_tv_extras_fee" type="id"/>
+  <item name="receipt_result_tv_payment" type="id"/>
+  <item name="receipt_result_tv_total_settlement" type="id"/>
+  <item name="receipt_result_rb_quality" type="id"/>
+  <item name="receipt_result_rb_service" type="id"/>
+  <item name="receipt_result_rb_logistics" type="id"/>
 
 </resources>

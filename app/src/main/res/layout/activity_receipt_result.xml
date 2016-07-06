@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+  <TextView
+      android:id="@id/receipt_result_tv_company_name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/space.small"
+      android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+      tools:text="是对方的身份"
+      />
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.medium"
+      android:padding="@dimen/space.medium"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="时间"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <TextView
+        android:id="@id/receipt_result_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        tools:text="2016-07-04 18:07 周二"
+        />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.divider"
+      android:padding="@dimen/space.medium"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分类"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <TextView
+        android:id="@id/receipt_result_tv_classify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        tools:text=""
+        />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.divider"
+      android:padding="@dimen/space.medium"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="运输量"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <TextView
+        android:id="@id/receipt_result_tv_carrying_capacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        tools:text="1.00"
+        />
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.divider"
+      android:padding="@dimen/space.medium"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扣杂"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <TextView
+        android:id="@id/receipt_result_tv_extras_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        tools:text="0.00"
+        />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.divider"
+      android:padding="@dimen/space.medium"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扣费"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <TextView
+        android:id="@id/receipt_result_tv_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        tools:text="0.00元"
+        />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.divider"
+      android:padding="@dimen/space.medium"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结算金额"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <TextView
+        android:id="@id/receipt_result_tv_total_settlement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        tools:text="100.00元"
+        />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/space.medium"
+      android:padding="@dimen/space.small"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="质量:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <android.support.v7.widget.AppCompatRatingBar
+        android:id="@id/receipt_result_rb_quality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/space.small"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="服务:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <android.support.v7.widget.AppCompatRatingBar
+        android:id="@id/receipt_result_rb_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        />
+
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/space.small"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="物流:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+
+    <android.support.v7.widget.AppCompatRatingBar
+        android:id="@id/receipt_result_rb_logistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        />
+
+  </RelativeLayout>
+
+
+</LinearLayout>

@@ -10,16 +10,19 @@
 
   <string name="receipt_check_comments">查看质检结果</string>
   <string name="receipt_evaluate">去评价</string>
-  <string name="personal_company_label">Company</string>
-  <string name="personal_name_label">Name</string>
-  <string name="personal_worker_number_label">Worker Number</string>
+  <string name="personal_company_label">公司</string>
+  <string name="personal_name_label">姓名</string>
+  <string name="personal_worker_number_label">分组</string>
   <string name="login_input_account_hint">请输入账号</string>
   <string name="login_input_passwd_hint">请输入密码</string>
   <string name="login">登录</string>
-  <string name="login_forget_passwd">忘记密码</string>
+  <string name="login_forget_passwd">忘记密码?</string>
   <string name="login_sign_up">新用户</string>
 
   <!--login-->
   <string name="login_error">登录失败，请检查用户名或密码!</string>
+  <string name="slogan">供销一站式交易及融资平台</string>
+
+  <string name="evaluate_hint">请输入评价</string>
 
 </resources>

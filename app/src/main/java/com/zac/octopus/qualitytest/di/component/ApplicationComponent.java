@@ -2,6 +2,8 @@ package com.zac.octopus.qualitytest.di.component;
 
 import android.app.Application;
 import android.content.Context;
+import com.google.gson.Gson;
+import com.zac.octopus.qualitytest.BaseActivity;
 import com.zac.octopus.qualitytest.data.local.PreferencesHelper;
 import com.zac.octopus.qualitytest.data.local.dao.UserDao;
 import com.zac.octopus.qualitytest.data.remote.WebService;
@@ -16,6 +18,8 @@ import javax.inject.Singleton;
  */
 @Singleton @Component(modules = ApplicationModule.class) public interface ApplicationComponent {
 
+  void inject(BaseActivity activity);
+
   Application application();
 
   @ApplicationContext Context context();
@@ -25,4 +29,6 @@ import javax.inject.Singleton;
   WebService webService();
 
   UserDao userDao();
+
+  Gson gson();
 }

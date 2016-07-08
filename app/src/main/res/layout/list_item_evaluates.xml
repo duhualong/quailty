@@ -1,73 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="2dp"
     >
-
-  <TextView
-      android:id="@id/evaluate_list_item_tv_date"
-      android:layout_width="wrap_content"
+  <RelativeLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:padding="@dimen/space.small"
-      tools:text="2016-07-06 14:04 周三"
-      />
-
-  <TextView
-      android:id="@id/evaluate_list_item_tv_content"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/evaluate_list_item_tv_date"
-      android:padding="@dimen/space.small"
-      android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-      tools:text="是对方的身份"
-      />
-
-  <TextView
-      android:id="@id/evaluate_list_item_tv_specific"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/evaluate_list_item_tv_content"
-      android:padding="@dimen/space.small"
-      tools:text="规格:是对方的身份"
-      />
-
-  <TextView
-      android:id="@id/evaluate_list_item_tv_qualified_rate"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentRight="true"
-      android:layout_below="@id/evaluate_list_item_tv_content"
-      android:padding="@dimen/space.small"
-      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-      tools:text="100.00%"
-      />
-
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentRight="true"
-      android:layout_below="@id/evaluate_list_item_tv_qualified_rate"
-      android:orientation="horizontal"
       >
 
-    <Button
-        android:id="@id/evaluate_list_item_btn_check_result"
+    <TextView
+        android:id="@id/evaluate_list_item_tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="查看质检结果"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:padding="@dimen/space.small"
+        tools:text="2016-07-06 14:04 周三"
         />
-    <Button
-        android:id="@id/evaluate_list_item_btn_evaluate"
+
+    <TextView
+        android:id="@id/evaluate_list_item_tv_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="去评价"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_below="@id/evaluate_list_item_tv_date"
+        android:padding="@dimen/space.small"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:text="是对方的身份"
         />
 
-  </LinearLayout>
+    <TextView
+        android:id="@id/evaluate_list_item_tv_specific"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/evaluate_list_item_tv_company"
+        android:padding="@dimen/space.small"
+        tools:text="规格:是对方的身份"
+        />
 
-</RelativeLayout>
+    <TextView
+        android:id="@id/evaluate_list_item_tv_qualified_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/evaluate_list_item_tv_date"
+        android:padding="@dimen/space.small"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/green_light"
+        tools:text="100.00%"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/evaluate_list_item_tv_qualified_rate"
+        android:paddingLeft="@dimen/space.small"
+        android:paddingRight="@dimen/space.small"
+        android:text="合格率"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/evaluate_list_item_tv_specific"
+        android:orientation="horizontal"
+        >
+
+      <Button
+          android:id="@id/evaluate_list_item_btn_check_result"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="查看质检结果"
+          style="@style/Widget.AppCompat.Button.Colored"
+          />
+      <Button
+          android:id="@id/evaluate_list_item_btn_evaluate"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="去评价"
+          style="@style/Widget.AppCompat.Button.Colored"
+          />
+
+    </LinearLayout>
+
+  </RelativeLayout>
+</android.support.v7.widget.CardView>

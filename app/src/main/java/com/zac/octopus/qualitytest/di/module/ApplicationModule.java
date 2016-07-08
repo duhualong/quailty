@@ -2,6 +2,7 @@ package com.zac.octopus.qualitytest.di.module;
 
 import android.app.Application;
 import android.content.Context;
+import com.google.gson.Gson;
 import com.zac.octopus.qualitytest.data.local.PreferencesHelper;
 import com.zac.octopus.qualitytest.data.local.dao.UserDao;
 import com.zac.octopus.qualitytest.data.remote.WebService;
@@ -39,5 +40,9 @@ import javax.inject.Singleton;
 
   @Provides @Singleton UserDao provideUserDao() {
     return new UserDao(mApplication);
+  }
+
+  @Provides @Singleton Gson provideGson() {
+    return new Gson();
   }
 }

@@ -2,6 +2,7 @@ package com.zac.octopus.qualitytest.data.local.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.zac.octopus.qualitytest.data.local.DatabaseHelper;
 import com.zac.octopus.qualitytest.di.ApplicationContext;
@@ -48,6 +49,7 @@ import javax.inject.Singleton;
 
   /**
    * 清除用户数据
+   *
    * @param database SQLiteDatabase
    * @param userId user id
    */
@@ -57,5 +59,31 @@ import javax.inject.Singleton;
     }
     database.delete(DatabaseHelper.TABLE_USER, DatabaseHelper.FIELD_UID + "=?",
         new String[] { userId });
+  }
+
+  /**
+   * 获取公司ID
+   * @param userId 用户ID
+   * @return 公司ID
+   */
+  public String getCompanyCodeById(String userId) {
+    String companyCode = null;
+    String[] column = { DatabaseHelper.FIELD_COMPANY_CODE };
+    String selection = DatabaseHelper.FIELD_UID + "=?";
+
+    SQLiteDatabase database = null;
+    Cursor cursor = null;
+    try {
+      database = mDatabaseHelper.getReadableDatabase();
+      cursor = database.query(DatabaseHelper.TABLE_USER, column, selection, new String[] { userId },
+          null, null, null);
+      if (cursor.moveToFirst()) {
+        companyCode = cursor.getString(0);
+      }
+      return companyCode;
+    } finally {
+      Utils.close(cursor);
+      Utils.close(database);
+    }
   }
 }

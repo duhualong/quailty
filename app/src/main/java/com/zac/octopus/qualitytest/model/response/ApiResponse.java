@@ -7,6 +7,7 @@ package com.zac.octopus.qualitytest.model.response;
 public class ApiResponse<T> {
   private int state;
   private String msg;
+  private String length; //是否还有未获取数据；true:是 false:否
   private T data;
 
   public int getState() {
@@ -31,5 +32,13 @@ public class ApiResponse<T> {
 
   public void setData(T data) {
     this.data = data;
+  }
+
+  public String getLength() {
+    return length;
+  }
+
+  public void setLength(String length) {
+    this.length = length;
   }
 }

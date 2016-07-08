@@ -2,6 +2,7 @@ package com.zac.octopus.qualitytest.di.component;
 
 import android.content.Context;
 import com.zac.octopus.qualitytest.BaseActivity;
+import com.zac.octopus.qualitytest.BaseFragment;
 import com.zac.octopus.qualitytest.di.ActivityContext;
 import com.zac.octopus.qualitytest.di.PerActivity;
 import com.zac.octopus.qualitytest.di.module.ActivityModule;
@@ -13,6 +14,6 @@ import dagger.Component;
  */
 @PerActivity @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
-  void inject(BaseActivity activity);
+  void inject(BaseFragment fragment);
   @ActivityContext Context context();
 }

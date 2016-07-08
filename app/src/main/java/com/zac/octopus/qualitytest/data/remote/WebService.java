@@ -1,9 +1,12 @@
 package com.zac.octopus.qualitytest.data.remote;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.zac.octopus.qualitytest.model.post.EncryptData;
 import com.zac.octopus.qualitytest.model.post.LoginData;
 import com.zac.octopus.qualitytest.model.response.ApiResponse;
+import com.zac.octopus.qualitytest.model.response.EvaluateResult;
 import com.zac.octopus.qualitytest.model.response.User;
+import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import okhttp3.OkHttpClient;
@@ -20,9 +23,26 @@ import rx.Single;
  */
 @Singleton public interface WebService {
 
-  String BASE_URL = "https://www.ezhangyu.com/index.php/Appapi/Qualitytest/";
+  String BASE_URL = "https://www.ezhangyu.com/Appapi/Qualitytest/";
 
   @POST("Login") Single<ApiResponse<User>> login(@Body LoginData loginData);
+
+  /**
+   * 获取质检列表
+   *
+   * @param data 加密数据
+   * @return 质检列表
+   */
+  @POST("FindQualityList") Single<ApiResponse<List<EvaluateResult>>> getEvaluateList(
+      @Body EncryptData data);
+
+  /**
+   * 评价质检单
+   *
+   * @param data 加密数据
+   * @return 评价结果
+   */
+  @POST("CommentQualityTest") Single<ApiResponse> postEvaluate(@Body EncryptData data);
 
   class Creator {
     @Inject public WebService create() {

@@ -3,6 +3,7 @@
 
   <!--commons-->
   <item name="root_container" type="id"/>
+  <item name="list_fragment_container" type="id"/>
   <item name="fragment_container" type="id"/>
   <item name="toolbar" type="id"/>
   <item name="progress_bar" type="id"/>
@@ -68,11 +69,16 @@
   <item name="receipt_evaluate_rb_logistics" type="id"/>
   <item name="receipt_evaluate_tv_post" type="id"/>
   <item name="receipt_result_tv_carrying_capacity" type="id"/>
-  <item name="receipt_result_tv_extras_fee" type="id"/>
+  <item name="receipt_result_tv_extras_lost" type="id"/>
   <item name="receipt_result_tv_payment" type="id"/>
   <item name="receipt_result_tv_total_settlement" type="id"/>
   <item name="receipt_result_rb_quality" type="id"/>
   <item name="receipt_result_rb_service" type="id"/>
   <item name="receipt_result_rb_logistics" type="id"/>
+  <item name="receipt_result_tv_edit_evaluate" type="id"/>
+  <item name="receipt_result_ll_evaluates_container" type="id"/>
+  <item name="ass_hole" type="id"/>
+  <item name="ass_we" type="id"/>
+  <item name="evaluate_list_item_tv_company" type="id"/>
 
 </resources>

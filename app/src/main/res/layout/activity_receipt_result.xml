@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
+  <android.support.design.widget.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimary"
+      >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+      <TextView
+          android:id="@id/receipt_result_tv_edit_evaluate"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="end"
+          android:paddingLeft="@dimen/space.medium"
+          android:paddingRight="@dimen/space.medium"
+          android:textAppearance="@style/TextAppearance.AppCompat.Title"
+          android:textColor="@color/white"
+          android:visibility="gone"
+          tools:text="填写评价"
+          />
+
+    </android.support.v7.widget.Toolbar>
+  </android.support.design.widget.AppBarLayout>
 
   <TextView
       android:id="@id/receipt_result_tv_company_name"
@@ -60,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        tools:text=""
+        tools:text="铁矿"
         />
 
   </RelativeLayout>
@@ -85,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        tools:text="1.00"
+        android:text="0.00"
         />
   </RelativeLayout>
 
@@ -104,12 +135,12 @@
         />
 
     <TextView
-        android:id="@id/receipt_result_tv_extras_fee"
+        android:id="@id/receipt_result_tv_extras_lost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        tools:text="0.00"
+        android:text="0.00"
         />
 
   </RelativeLayout>
@@ -134,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        tools:text="0.00元"
+        android:text="0.00元"
         />
 
   </RelativeLayout>
@@ -159,86 +190,93 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        tools:text="100.00元"
+        android:text="0.00元"
         />
 
   </RelativeLayout>
 
-  <RelativeLayout
-      android:layout_width="wrap_content"
+
+  <LinearLayout
+      android:id="@id/receipt_result_ll_evaluates_container"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/space.medium"
-      android:padding="@dimen/space.small"
+      android:visibility="gone"
+      android:orientation="vertical"
       >
-
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="质量:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        />
+        android:padding="@dimen/space.small"
+        >
 
-    <android.support.v7.widget.AppCompatRatingBar
-        android:id="@id/receipt_result_rb_quality"
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:text="质量:"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          />
+
+      <android.support.v7.widget.AppCompatRatingBar
+          android:id="@id/receipt_result_rb_quality"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          style="@style/Widget.AppCompat.RatingBar.Indicator"
+          />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        style="@style/Widget.AppCompat.RatingBar.Indicator"
-        />
+        android:padding="@dimen/space.small"
+        >
 
-  </RelativeLayout>
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:text="服务:"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          />
 
-  <RelativeLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:padding="@dimen/space.small"
-      >
+      <android.support.v7.widget.AppCompatRatingBar
+          android:id="@id/receipt_result_rb_service"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          style="@style/Widget.AppCompat.RatingBar.Indicator"
+          />
 
-    <TextView
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="服务:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        />
+        android:padding="@dimen/space.small"
+        >
 
-    <android.support.v7.widget.AppCompatRatingBar
-        android:id="@id/receipt_result_rb_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        style="@style/Widget.AppCompat.RatingBar.Indicator"
-        />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:text="物流:"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          />
 
-  </RelativeLayout>
+      <android.support.v7.widget.AppCompatRatingBar
+          android:id="@id/receipt_result_rb_logistics"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          style="@style/Widget.AppCompat.RatingBar.Indicator"
+          />
 
-  <RelativeLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:padding="@dimen/space.small"
-      >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="物流:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        />
-
-    <android.support.v7.widget.AppCompatRatingBar
-        android:id="@id/receipt_result_rb_logistics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        style="@style/Widget.AppCompat.RatingBar.Indicator"
-        />
-
-  </RelativeLayout>
-
+    </RelativeLayout>
+  </LinearLayout>
 
 </LinearLayout>

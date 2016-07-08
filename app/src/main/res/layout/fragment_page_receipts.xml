@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -15,27 +17,22 @@
       >
 
     <android.support.design.widget.TabItem
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:text="@string/un_estimated"
         />
 
     <android.support.design.widget.TabItem
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:text="@string/estimated"
         />
 
   </android.support.design.widget.TabLayout>
-  <android.support.v4.widget.SwipeRefreshLayout
-      android:id="@id/receipt_refresh_switch"
+
+  <FrameLayout
+      android:id="@id/list_fragment_container"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      >
-    <android.support.v7.widget.RecyclerView
-        android:id="@id/receipt_rv_receipt_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-  </android.support.v4.widget.SwipeRefreshLayout>
+      />
 </LinearLayout>

@@ -16,6 +16,7 @@ import com.zac.octopus.qualitytest.R;
 import com.zac.octopus.qualitytest.model.post.LoginData;
 import com.zac.octopus.qualitytest.model.response.ApiResponse;
 import com.zac.octopus.qualitytest.model.response.User;
+import com.zac.octopus.qualitytest.util.Constants;
 import com.zac.octopus.qualitytest.util.Encrypt;
 import com.zac.octopus.qualitytest.util.RxUtils;
 import rx.Subscriber;
@@ -54,7 +55,7 @@ public class LoginActivity extends BaseActivity {
     }
   }
 
-  private void login(String username, String password) {
+  private void login(final String username, String password) {
     mProgressBar.setVisibility(View.VISIBLE);
     String data = generateLoginData(password);
     LoginData loginData = new LoginData(username, data);
@@ -74,7 +75,12 @@ public class LoginActivity extends BaseActivity {
             if (response.getState() == 200) {
               User user = response.getData();
               mUserDao.initUserData(user);
-              startActivity(new Intent(mContext, MainActivity.class));
+              mPrefsHelper.getPrefs()
+                  .edit()
+                  .putString(Constants.UID, user.getUid())
+                  .putString(Constants.KKK, user.getUserpwd())
+                  .apply();
+              startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
           }
         });

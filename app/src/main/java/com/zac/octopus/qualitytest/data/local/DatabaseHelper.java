@@ -20,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
   public static final String FIELD_USERNAME = "username";
   public static final String FIELD_PHONE = "phone";
   public static final String FIELD_EMAIL = "email";
+  public static final String FIELD_KEY = "kkk";
 
   public DatabaseHelper(Context context) {
     super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,6 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         FIELD_PHONE + " TEXT, " +
         FIELD_EMAIL + " TEXT, " +
         FIELD_COMPANY_CODE + " TEXT, " +
+        FIELD_KEY + " TEXT, " +
         FIELD_LOGO + " TEXT);";
 
     sqLiteDatabase.execSQL(sql);

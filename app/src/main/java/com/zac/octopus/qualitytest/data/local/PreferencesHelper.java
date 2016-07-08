@@ -20,6 +20,13 @@ import javax.inject.Singleton;
     mPrefs = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
   }
 
+  public SharedPreferences getPrefs() {
+    if (mPrefs == null) {
+      throw new IllegalStateException("PreferencesHelper did not initialized!");
+    }
+    return mPrefs;
+  }
+
   public void clear() {
     if (mPrefs != null) {
       mPrefs.edit().clear().apply();

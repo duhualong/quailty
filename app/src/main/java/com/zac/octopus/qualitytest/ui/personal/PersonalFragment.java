@@ -48,6 +48,7 @@ public class PersonalFragment extends BaseFragment {
   @OnClick({ R.id.personal_iv_settings, R.id.personal_sdv_avatar }) public void onClick(View view) {
     switch (view.getId()) {
       case R.id.personal_iv_settings:
+
         break;
       case R.id.personal_sdv_avatar:
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

@@ -8,6 +8,8 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+  <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
   <application
       android:name=".App"
       android:allowBackup="true"
@@ -16,7 +18,7 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
     <activity
-        android:name=".MainActivity"
+        android:name=".ui.LoginActivity"
         android:screenOrientation="portrait"
         >
       <intent-filter>
@@ -24,6 +26,7 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
+
     <activity
         android:name=".ui.scanner.PortraitCaptureActivity"
         android:screenOrientation="fullSensor"
@@ -32,7 +35,7 @@
         android:windowSoftInputMode="stateAlwaysHidden"/>
 
     <activity
-        android:name=".ui.LoginActivity"
+        android:name=".MainActivity"
         android:screenOrientation="portrait"
         android:windowSoftInputMode="adjustResize"
         >
@@ -65,6 +68,24 @@
         android:name="com.yalantis.ucrop.UCropActivity"
         android:screenOrientation="portrait"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+    <!--user setting-->
+    <activity android:name=".ui.personal.PersonalSettingActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize"
+        >
+    </activity>
+    <!--modify pwd-->
+    <activity android:name=".ui.personal.ModifyPwdActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize"
+        >
+    </activity>
+    <!--forget pwd-->
+    <activity android:name=".ui.ForgetPwdActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="adjustResize"
+        >
+        </activity>
   </application>
 
 </manifest>

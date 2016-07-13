@@ -3,10 +3,12 @@ package com.zac.octopus.qualitytest.ui;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.OnClick;
 import com.google.gson.JsonObject;
@@ -26,7 +28,7 @@ import rx.Subscriber;
  * Created by Zac on 2016/6/30.
  */
 public class LoginActivity extends BaseActivity {
-
+  private long firstTime = 0;
   @BindView(R.id.login_et_username) EditText mUsernameInput;
   @BindView(R.id.login_et_passwd) EditText mPasswdInput;
   @BindView(R.id.progress_bar) ProgressBar mProgressBar;
@@ -37,6 +39,10 @@ public class LoginActivity extends BaseActivity {
   }
 
   @Override protected void updateUI() {
+    //if (mPrefsHelper.getPrefs().getBoolean(Constants.IS_LOGINED,true)){
+    //  LoginActivity.this.finish();
+    //  startActivity(new Intent(LoginActivity.this, MainActivity.class));
+    //}
 
   }
 
@@ -58,6 +64,7 @@ public class LoginActivity extends BaseActivity {
   private void login(final String username, String password) {
     mProgressBar.setVisibility(View.VISIBLE);
     String data = generateLoginData(password);
+    System.out.println("加密的数据"+data);
     LoginData loginData = new LoginData(username, data);
     mSubscription = mWebService.login(loginData)
         .compose(RxUtils.<ApiResponse<User>>applySchedulers())
@@ -79,7 +86,10 @@ public class LoginActivity extends BaseActivity {
                   .edit()
                   .putString(Constants.UID, user.getUid())
                   .putString(Constants.KKK, user.getUserpwd())
+                  .putBoolean(Constants.IS_LOGINED,true)
                   .apply();
+              System.out.println("打印pwd:"+user.getUserpwd());
+              LoginActivity.this.finish();
               startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
           }
@@ -105,5 +115,26 @@ public class LoginActivity extends BaseActivity {
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("userpwd", key);
     return Encrypt.encrypt(key, jsonObject.toString());
+  }
+
+  //退出应用：
+
+  @Override
+  public boolean onKeyUp(int keyCode, KeyEvent event) {
+    // TODO Auto-generated method stub
+    switch(keyCode)
+    {
+      case KeyEvent.KEYCODE_BACK:
+        long secondTime = System.currentTimeMillis();
+        if (secondTime - firstTime > 2000) {                                         //如果两次按键时间间隔大于2秒，则不退出
+          Toast.makeText(this, "再按一次退出水电管家", Toast.LENGTH_SHORT).show();
+          firstTime = secondTime;//更新firstTime
+          return true;
+        } else {     //两次按键小于2秒时，退出应用
+          System.exit(0);
+        }
+        break;
+    }
+    return super.onKeyUp(keyCode, event);
   }
 }

@@ -3,6 +3,7 @@ package com.zac.octopus.qualitytest.ui.personal;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -17,6 +18,7 @@ import com.zac.octopus.qualitytest.BaseFragment;
 import com.zac.octopus.qualitytest.MainActivity;
 import com.zac.octopus.qualitytest.R;
 import com.zac.octopus.qualitytest.ui.dialog.ImageSelectDialogFragment;
+import com.zac.octopus.qualitytest.util.Constants;
 import com.zac.octopus.qualitytest.util.PermissionManager;
 import com.zac.octopus.qualitytest.util.PhotoUtils;
 import java.io.File;
@@ -42,13 +44,14 @@ public class PersonalFragment extends BaseFragment {
   }
 
   @Override protected void updateUI() {
+    String userId = mPrefsHelper.getPrefs().getString(Constants.UID, "");
 
   }
 
   @OnClick({ R.id.personal_iv_settings, R.id.personal_sdv_avatar }) public void onClick(View view) {
     switch (view.getId()) {
       case R.id.personal_iv_settings:
-
+        getActivity().startActivity(new Intent(getContext(), PersonalSettingActivity.class));
         break;
       case R.id.personal_sdv_avatar:
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -68,8 +71,7 @@ public class PersonalFragment extends BaseFragment {
 
   private void showPhotoHeadFindDialog() {
     File photoFile = PhotoUtils.createImageFile();
-    photoUri = Uri.fromFile(photoFile);
-
+    if (photoFile != null) photoUri = Uri.fromFile(photoFile);
     imageSelectDialog = ImageSelectDialogFragment.newInstance(photoUri);
     imageSelectDialog.setTargetFragment(PersonalFragment.this, 0);
     imageSelectDialog.show(getFragmentManager());

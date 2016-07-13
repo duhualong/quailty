@@ -7,4 +7,6 @@ package com.zac.octopus.qualitytest.util;
 public class Constants {
   public static final String UID = "uid";
   public static final String KKK = "kkk";
+  public static final String IS_LOGINED="is_login";
+
 }

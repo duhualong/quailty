@@ -153,9 +153,7 @@ public class ReceiptEvaluateListFragment extends BaseFragment
 
   private EncryptData generateEncryptData(String uid, String modelStr) {
     String key = mPrefsHelper.getPrefs().getString(Constants.KKK, "");
-
     String encryptStr = Encrypt.encrypt(key, modelStr);
-
     return new EncryptData(uid, encryptStr);
   }
 }

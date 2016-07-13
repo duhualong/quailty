@@ -12,6 +12,7 @@
   <dimen name="img_big">72dp</dimen>
 
   <!--space-->
+  <dimen name="space.large">36dp</dimen>
   <dimen name="space.medium">16dp</dimen>
   <dimen name="space.small">8dp</dimen>
   <dimen name="space.very_small">4dp</dimen>

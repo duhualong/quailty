@@ -3,6 +3,7 @@ package com.zac.octopus.qualitytest;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
@@ -44,6 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     App.get(this).getComponent().inject(this);
 
     ButterKnife.bind(this);
+    App.addActivity(this);
     updateUI();
   }
 
@@ -113,5 +115,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
     return mActivityComponent;
   }
-
+  @Override
+  public boolean onKeyDown(int keyCode, KeyEvent event){
+    if(KeyEvent.KEYCODE_BACK==keyCode)
+      return false ;
+    return super.onKeyDown(keyCode, event);
+  }
 }

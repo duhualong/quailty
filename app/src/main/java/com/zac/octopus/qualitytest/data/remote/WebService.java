@@ -3,6 +3,7 @@ package com.zac.octopus.qualitytest.data.remote;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.zac.octopus.qualitytest.model.post.EncryptData;
 import com.zac.octopus.qualitytest.model.post.LoginData;
+import com.zac.octopus.qualitytest.model.post.ModifyPwd;
 import com.zac.octopus.qualitytest.model.response.ApiResponse;
 import com.zac.octopus.qualitytest.model.response.EvaluateResult;
 import com.zac.octopus.qualitytest.model.response.User;
@@ -23,9 +24,11 @@ import rx.Single;
  */
 @Singleton public interface WebService {
 
-  String BASE_URL = "https://www.ezhangyu.com/Appapi/Qualitytest/";
+  String BASE_URL = "http://www.ezhangyu.com/Appapi/Qualitytest/";
 
   @POST("Login") Single<ApiResponse<User>> login(@Body LoginData loginData);
+  //修改密码
+  @POST("UpdatePwd")Single<ApiResponse> getModifyPwd(@Body EncryptData data);
 
   /**
    * 获取质检列表

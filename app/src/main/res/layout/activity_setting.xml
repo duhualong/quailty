@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0">
+  <include layout="@layout/include_actionbar"/>
+  <RelativeLayout
+      android:id="@id/modify_pwd"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      android:background="@color/white"
+      android:padding="15dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:text="修改密码"/>
+  </RelativeLayout>
+  <Button
+      android:id="@id/btn_login"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="48dp"
+      android:background="@drawable/bg_btn_round_blue"
+      android:text="退出登录"
+      android:layout_gravity="center_vertical"
+      style="@style/Widget.AppCompat.Button.Colored"
+      android:layout_marginLeft="@dimen/space.medium"
+      android:layout_marginStart="@dimen/space.medium"
+      android:layout_marginRight="@dimen/space.medium"
+      android:layout_marginEnd="@dimen/space.medium"/>
+
+</LinearLayout>

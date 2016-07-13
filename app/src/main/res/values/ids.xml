@@ -80,5 +80,11 @@
   <item name="ass_hole" type="id"/>
   <item name="ass_we" type="id"/>
   <item name="evaluate_list_item_tv_company" type="id"/>
+  <item name="ic_back_left" type="id"/>
+  <item name="modify_pwd_old" type="id"/>
+  <item name="modify_pwd_new" type="id"/>
+  <item name="modify_re_pwd" type="id"/>
+  <item name="modify_pwd" type="id"/>
+  <item name="btn_confirm" type="id"/>
 
 </resources>

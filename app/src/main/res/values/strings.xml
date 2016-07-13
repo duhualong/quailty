@@ -17,6 +17,7 @@
   <string name="login_input_passwd_hint">请输入密码</string>
   <string name="login">登录</string>
   <string name="login_forget_passwd">忘记密码?</string>
+  <string name="forget_pwd">忘记密码</string>
   <string name="login_sign_up">新用户</string>
 
   <!--login-->
@@ -24,5 +25,14 @@
   <string name="slogan">供销一站式交易及融资平台</string>
 
   <string name="evaluate_hint">请输入评价</string>
+  <!--setting-->
+  <string name="setting">设置</string>
+  <string name="modify_pwd">修改密码</string>
+  <string name="hint_modify_old_pwd">请输入旧密码</string>
+  <string name="hint_modify_new_pwd">请输入旧密码</string>
+  <string name="hint_modify_re_pwd">请确认密码</string>
+  <string name="login_out">退出登录</string>
+  <string name="modify_error">修改失败，请检查密码是否正确!</string>
+  <string name="hint_forget_pwd">请联系所属上级管理员更新密码</string>
 
 </resources>

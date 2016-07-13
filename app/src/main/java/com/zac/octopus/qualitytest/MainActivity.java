@@ -3,9 +3,11 @@ package com.zac.octopus.qualitytest;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnClick;
@@ -15,7 +17,7 @@ import com.zac.octopus.qualitytest.ui.scanner.ScannerFragment;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
-
+  private long firstTime = 0;
   private static final int NAVIGATOR_COUNT = 3;
   private static final String[] titles = {"质检评价","质检","个人中心"};
 
@@ -102,5 +104,28 @@ public class MainActivity extends BaseActivity {
 
   public View getRootView() {
     return rootView;
+  }
+
+
+
+  //退出应用：
+
+  @Override
+  public boolean onKeyUp(int keyCode, KeyEvent event) {
+    // TODO Auto-generated method stub
+    switch(keyCode)
+    {
+      case KeyEvent.KEYCODE_BACK:
+        long secondTime = System.currentTimeMillis();
+        if (secondTime - firstTime > 2000) {                                         //如果两次按键时间间隔大于2秒，则不退出
+          Toast.makeText(this, "再按一次退出水电管家", Toast.LENGTH_SHORT).show();
+          firstTime = secondTime;//更新firstTime
+          return true;
+        } else {     //两次按键小于2秒时，退出应用
+          System.exit(0);
+        }
+        break;
+    }
+    return super.onKeyUp(keyCode, event);
   }
 }
